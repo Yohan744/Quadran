@@ -19,12 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onBeforeMount} from 'vue'
+import {ref, onBeforeMount, onMounted} from 'vue'
 import {useRouter} from 'vue-router'
 import {useSessionStore} from '~/stores/sessionStore'
 import {useSocketStore} from '~/stores/socketStore'
 import {useSocket} from "~/helpers/socketHelper";
-import QrCode from "~/components/teacher/QrCode.vue";
+import QrCode from "~/components/experience/teacher/QrCode.vue";
 import {IRoles} from "../../../../types/IRoles";
 
 const router = useRouter()
