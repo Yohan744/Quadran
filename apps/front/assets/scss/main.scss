@@ -1,6 +1,8 @@
+@forward 'reset';
 @forward 'variables';
 @forward 'colors';
 @forward 'eases';
+@forward 'breakpoints';
 
 html {
   height: 100vh;
@@ -14,12 +16,6 @@ html {
   text-rendering: optimizeSpeed;
   overflow: hidden;
   touch-action: manipulation; // disable double tap zoom
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
   *::selection,
   *::target-text {
