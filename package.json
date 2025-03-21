@@ -1,0 +1,22 @@
+{
+  "name": "poc-server",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "pino-pretty": "^13.0.0",
+    "prettier": "^3.5.3"
+  },
+  "scripts": {
+    "back:dev": "npm --workspace=apps/back run dev",
+    "back:build": "npm --workspace=apps/back run build",
+    "back:start": "npm --workspace=apps/back run start",
+    "front:build": "npm --workspace=apps/front run build",
+    "front:dev": "npm --workspace=apps/front run dev",
+    "front:generate": "npm --workspace=apps/front run generate",
+    "front:preview": "npm --workspace=apps/front run preview",
+    "front:postinstall": "npm --workspace=apps/front run postinstall"
+  }
+}

@@ -1,0 +1,10 @@
+.env.local
+node_modules
+.DS_Store
+.idea
+.vscode
+.history
+*.local
+.cache
+.env
+vite.config.ts.timestamp*
