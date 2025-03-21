@@ -3,6 +3,7 @@
 @forward 'colors';
 @forward 'eases';
 @forward 'breakpoints';
+@forward 'fonts';
 
 html {
   height: 100vh;
@@ -35,5 +36,6 @@ body, #__nuxt {
   height: 100%;
   width: 100%;
   overflow: clip;
+  font-family: 'Poppins', sans-serif;
   overscroll-behavior: none;
 }
