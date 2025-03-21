@@ -1,0 +1,15 @@
+@use 'eases';
+
+$transition-time: 0.75s;
+$default-ease: eases.$easePower3Out;
+
+$z-index: (
+  'header': 100,
+  'notification': 10,
+);
+
+@function z($key) {
+  @return map-get($z-index, $key);
+}
+
+

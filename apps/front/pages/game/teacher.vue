@@ -26,6 +26,7 @@ import {useSocketStore} from '~/stores/socketStore'
 import {useSocket} from "~/helpers/socketHelper";
 import QrCode from "~/components/experience/teacher/QrCode.vue";
 import {IRoles} from "../../../../types/IRoles";
+import TeacherNotifications from "~/components/experience/teacher/TeacherNotifications.vue";
 
 const router = useRouter()
 const sessionStore = useSessionStore()
