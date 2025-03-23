@@ -1,6 +1,6 @@
-import { IRoles } from '../../../types/IRoles';
+import { IRoles } from '../../../types/IRoles'
 
 export interface IJoinSession {
-    sessionId: string;
-    role: IRoles;
+  sessionId: string
+  role: IRoles
 }

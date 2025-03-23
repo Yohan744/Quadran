@@ -1,7 +1,7 @@
-import {ref} from 'vue'
-import {io} from 'socket.io-client'
-import type {IRoles} from "../../../types/IRoles"
-import {useSocketStore} from "~/stores/socketStore";
+import { ref } from 'vue'
+import { io } from 'socket.io-client'
+import type { IRoles } from '../../../types/IRoles'
+import { useSocketStore } from '~/stores/socketStore'
 
 const socket = ref()
 
@@ -41,14 +41,14 @@ export function useSocket() {
 
   function joinSession(sessionId: string, role: IRoles) {
     if (!socket.value) return
-    socket.value.emit('join', {sessionId, role})
+    socket.value.emit('join', { sessionId, role })
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function sendMessage(sessionId: string, role: IRoles, content: string) {
     if (!socket.value) return
-    socket.value.emit('message', {sessionId, role, content})
+    socket.value.emit('message', { sessionId, role, content })
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,7 +65,7 @@ export function useSocket() {
 
   function deleteSession(sessionId: string) {
     if (!socket.value) return
-    socket.value.emit('delete-session', {sessionId})
+    socket.value.emit('delete-session', { sessionId })
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,6 +84,6 @@ export function useSocket() {
     sendMessage,
     disconnect,
     deleteSession,
-    on
+    on,
   }
 }

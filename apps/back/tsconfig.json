@@ -19,13 +19,6 @@
     "lib": ["ESNext"],
     "noImplicitAny": false
   },
-  "include": [
-    "**/*.ts",
-    "../../types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "../../apps/front/**/*.ts"
-  ]
+  "include": ["**/*.ts", "../../types/**/*.ts"],
+  "exclude": ["node_modules", "dist", "../../apps/front/**/*.ts"]
 }

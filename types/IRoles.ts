@@ -1,4 +1,4 @@
 export enum IRoles {
-    TEACHER = 'teacher',
-    STUDENT = 'student',
+  TEACHER = 'teacher',
+  STUDENT = 'student',
 }

@@ -1,7 +1,7 @@
-import { IRoles } from './IRoles';
+import { IRoles } from './IRoles'
 
 export interface IMessageData {
-    sessionId: string;
-    content: string;
-    role: IRoles;
+  sessionId: string
+  content: string
+  role: IRoles
 }

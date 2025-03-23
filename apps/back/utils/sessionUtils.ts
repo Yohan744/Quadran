@@ -1,5 +1,5 @@
-import {ISessionData} from "~/types/ISessionData";
-import { v4 } from 'uuid';
+import { ISessionData } from '~/types/ISessionData'
+import { v4 } from 'uuid'
 
 /**
  * Génère un ID de session unique.
@@ -7,10 +7,9 @@ import { v4 } from 'uuid';
  * @returns {number} - Un identifiant de session unique.
  */
 export function generateUniqueSessionId(sessions: ISessionData): string {
-    let sessionId: any;
-    do {
-        sessionId = v4();
-    } while (sessions[sessionId]);
-    return sessionId;
+  let sessionId: any
+  do {
+    sessionId = v4()
+  } while (sessions[sessionId])
+  return sessionId
 }
-
