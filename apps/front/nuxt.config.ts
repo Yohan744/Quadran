@@ -1,4 +1,6 @@
 import dotenv from 'dotenv'
+import process from 'node:process'
+import { defineNuxtConfig } from 'nuxt/config'
 
 dotenv.config({ path: '../../.env' })
 
@@ -46,5 +48,12 @@ export default defineNuxtConfig({
   piniaPluginPersistedstate: {
     storage: 'localStorage',
     debug: false,
+  },
+
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      ...(process.env.NODE_ENV === 'production' ? { cssnano: { preset: 'default' } } : {}),
+    },
   },
 })
