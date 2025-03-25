@@ -32,5 +32,12 @@
   "lint-staged": {
     "*": "prettier --write --ignore-unknown",
     "*.{js,ts,vue}": "eslint --fix"
-  }
+  },
+  "browserslist": [
+    ">0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11",
+    "iOS >= 12"
+  ]
 }

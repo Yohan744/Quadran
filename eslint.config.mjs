@@ -1,4 +1,3 @@
-// eslint.config.mjs
 import js from '@eslint/js'
 import vue from 'eslint-plugin-vue'
 import prettier from 'eslint-plugin-prettier'
@@ -15,7 +14,7 @@ export default [
     languageOptions: {
       parser: vueEslintParser,
       parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         sourceType: 'module',
       },
     },
