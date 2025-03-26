@@ -23,7 +23,15 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [checker({ typescript: true, enableBuild: true, overlay: true, terminal: true })],
+    plugins: [
+      checker({
+        typescript: true,
+        vueTsc: true,
+        enableBuild: true,
+        overlay: true,
+        terminal: true
+      })
+    ],
 
     json: {
       stringify: true

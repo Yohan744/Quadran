@@ -17,52 +17,52 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, onBeforeMount, onMounted } from 'vue'
-  import { useRouter } from 'vue-router'
-  import { useSessionStore } from '~/stores/sessionStore'
-  import { useSocketStore } from '~/stores/socketStore'
-  import { useSocket } from '~/helpers/socketHelper'
-  import QrCode from '~/components/experience/teacher/QrCode.vue'
-  import { IRoles } from '../../../../types/IRoles'
-  import TeacherNotifications from '~/components/experience/teacher/TeacherNotifications.vue'
+  import { ref, onBeforeMount, onMounted } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useSessionStore } from '~/stores/sessionStore';
+  import { useSocketStore } from '~/stores/socketStore';
+  import { useSocket } from '~/helpers/socketHelper';
+  import QrCode from '~/components/experience/teacher/QrCode.vue';
+  import { IRoles } from '../../../../types/IRoles';
+  import TeacherNotifications from '~/components/experience/teacher/TeacherNotifications.vue';
 
-  const router = useRouter()
-  const sessionStore = useSessionStore()
-  const socketStore = useSocketStore()
-  const { initSocket, joinSession, checkSessionStatus, on, disconnect } = useSocket()
+  const router = useRouter();
+  const sessionStore = useSessionStore();
+  const socketStore = useSocketStore();
+  const { initSocket, joinSession, checkSessionStatus, on, disconnect } = useSocket();
 
-  const notificationsRef = ref(null)
+  const notificationsRef = ref<typeof TeacherNotifications | null>(null);
 
   /**
    * Check if the user is connected and if the socket is initialized
    */
   onBeforeMount(() => {
-    if (sessionStore.sessionId === null) router.push('/dashboard')
+    if (sessionStore.sessionId === null) router.push('/dashboard');
     else {
-      if (socketStore.socketId === null) initSocket(IRoles.TEACHER)
-      checkSessionStatus(sessionStore.sessionId)
+      if (socketStore.socketId === null) initSocket(IRoles.TEACHER);
+      checkSessionStatus(sessionStore.sessionId);
       on('session-status', data => {
         if (data === null || data.length === 0) {
-          console.log('Not a valid session')
-          router.push('/dashboard')
-          disconnect()
-          sessionStore.clearSession()
-        } else joinSession(sessionStore.sessionId, IRoles.TEACHER)
-      })
+          console.log('Not a valid session');
+          router.push('/dashboard');
+          disconnect();
+          sessionStore.clearSession();
+        } else joinSession(sessionStore.sessionId, IRoles.TEACHER);
+      });
     }
-  })
+  });
 
   onMounted(() => {
     on('user-joined', () => {
-      console.log('new user')
-      notificationsRef.value?.addNotification('Un utilisateur a rejoint la session')
-    })
+      console.log('new user');
+      notificationsRef.value?.addNotification('Un utilisateur a rejoint la session');
+    });
 
     on('user-left', () => {
-      console.log('user left')
-      notificationsRef.value?.addNotification('Un utilisateur a quitté la session')
-    })
-  })
+      console.log('user left');
+      notificationsRef.value?.addNotification('Un utilisateur a quitté la session');
+    });
+  });
 </script>
 
 <style lang="scss" scoped>
