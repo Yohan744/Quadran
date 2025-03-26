@@ -30,8 +30,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": "prettier --write --ignore-unknown",
-    "*.{js,ts,vue}": "eslint --fix"
+    "*": "prettier --write --ignore-unknown"
   },
   "browserslist": [
     ">0.5%",

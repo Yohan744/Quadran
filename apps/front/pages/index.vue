@@ -4,8 +4,6 @@
 
     <NuxtLink target="_blank" to="https://google.com">Voir toutes nos autres experiences</NuxtLink>
 
-    <h1>to do site classique avec lien vers les exp, puis dashboard</h1>
-
     <NuxtLink to="/connexion">Connexion</NuxtLink>
   </main>
 </template>

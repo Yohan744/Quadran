@@ -25,6 +25,7 @@
     "autoprefixer": "^10.4.21",
     "consola": "^3.4.0",
     "cssnano": "^7.0.6",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "vite-plugin-checker": "^0.9.1"
   }
 }

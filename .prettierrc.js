@@ -3,8 +3,8 @@ module.exports = {
   tabWidth: 2,
   printWidth: 120,
   vueIndentScriptAndStyle: true,
-  semi: false,
-  trailingComma: 'es5',
+  semi: true,
+  trailingComma: 'none',
   arrowParens: 'avoid',
   endOfLine: 'lf',
   bracketSpacing: true,
@@ -13,7 +13,8 @@ module.exports = {
       files: '*.vue',
       options: {
         htmlWhitespaceSensitivity: 'ignore',
-      },
-    },
-  ],
-}
+        cssWhitespaceSensitivity: 'ignore'
+      }
+    }
+  ]
+};

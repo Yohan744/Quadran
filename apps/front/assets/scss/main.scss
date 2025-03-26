@@ -1,9 +1,8 @@
-@forward 'reset';
-@forward 'variables';
-@forward 'colors';
-@forward 'eases';
-@forward 'breakpoints';
-@forward 'fonts';
+@use 'reset';
+@use 'variables';
+@use 'colors';
+@use 'breakpoints';
+@use 'fonts';
 
 html {
   height: 100vh;
