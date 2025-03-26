@@ -28,6 +28,9 @@ export default defineNuxtConfig({
         typescript: true,
         vueTsc: true,
         enableBuild: true,
+        stylelint: {
+          lintCommand: 'stylelint **/*.{css,scss,vue}'
+        },
         overlay: true,
         terminal: true
       })

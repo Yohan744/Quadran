@@ -33,8 +33,7 @@
       width: fit-content;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-content: center;
+      place-content: center center;
       background: #9f9f9f;
       gap: 20px;
 

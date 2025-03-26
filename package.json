@@ -30,7 +30,8 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*": "prettier --write --ignore-unknown"
+    "*": "prettier --write --ignore-unknown",
+    "apps/front/**/*.{css,scss,vue}": "npm --workspace=apps/front run lint:style"
   },
   "browserslist": [
     ">0.5%",

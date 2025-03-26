@@ -12,8 +12,8 @@ html {
   overscroll-behavior: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-rendering: optimizeSpeed;
-  text-rendering: optimizeSpeed;
+  -webkit-text-rendering: optimizespeed;
+  text-rendering: optimizespeed;
   overflow: hidden;
   touch-action: manipulation; // disable double tap zoom
 
@@ -35,6 +35,6 @@ body,
   height: 100%;
   width: 100%;
   overflow: clip;
-  font-family: 'Poppins', sans-serif;
+  font-family: Poppins, sans-serif;
   overscroll-behavior: none;
 }

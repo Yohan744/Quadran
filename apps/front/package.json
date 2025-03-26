@@ -7,7 +7,8 @@
     "dev": "nuxt dev --host --force",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint:style": "stylelint \"**/*.{css,scss,vue}\" --fix"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.11.0",
@@ -25,7 +26,11 @@
     "autoprefixer": "^10.4.21",
     "consola": "^3.4.0",
     "cssnano": "^7.0.6",
+    "postcss-html": "^1.8.0",
     "sass": "^1.85.1",
+    "stylelint": "^16.17.0",
+    "stylelint-config-recommended-vue": "^1.6.0",
+    "stylelint-config-standard-scss": "^14.0.0",
     "vite-plugin-checker": "^0.9.1",
     "vue-tsc": "^2.2.8"
   }
