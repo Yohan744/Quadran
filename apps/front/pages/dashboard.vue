@@ -17,25 +17,25 @@
 </template>
 
 <script setup lang="ts">
-  import { useSocket } from '~/helpers/socketHelper'
-  import { IRoles } from '../../../types/IRoles'
-  import { useSessionStore } from '~/stores/sessionStore'
-  import { useRouter } from '#vue-router'
+  import { useSocket } from '~/helpers/communication/socketHelper';
+  import { IRoles } from '../../../types/IRoles';
+  import { useSessionStore } from '~/stores/sessionStore';
+  import { useRouter } from '#vue-router';
 
-  const { initSocket, createSession, on } = useSocket()
-  const sessionStore = useSessionStore()
-  const router = useRouter()
+  const { initSocket, createSession, on } = useSocket();
+  const sessionStore = useSessionStore();
+  const router = useRouter();
 
   function handleCreateSession() {
     initSocket(IRoles.TEACHER, () => {
       on('session-created', data => {
-        sessionStore.setSession(data.sessionId, IRoles.TEACHER)
-        console.log('New session: ', data.sessionId)
-        router.push('/game/teacher')
-      })
+        sessionStore.setSession(data.sessionId, IRoles.TEACHER);
+        console.log('New session: ', data.sessionId);
+        router.push('/game/teacher');
+      });
 
-      createSession()
-    })
+      createSession();
+    });
   }
 </script>
 

@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-  import { useStudentSessionJoiner } from '~/helpers/joinSessionViaUrlForStudentHelper'
+  import { useStudentSessionJoiner } from '~/helpers/communication/joinSessionViaUrlForStudentHelper';
 
-  useStudentSessionJoiner() // join the session via the url if provided
+  useStudentSessionJoiner(); // join the session via the url if provided
 </script>

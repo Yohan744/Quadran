@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { io } from 'socket.io-client';
-import type { IRoles } from '../../../types/IRoles';
+import type { IRoles } from '../../../../types/IRoles';
 import { useSocketStore } from '~/stores/socketStore';
 
 const socket = ref();

@@ -5,35 +5,24 @@
 <script setup lang="ts">
   import { useSocketStore } from '~/stores/socketStore';
   import { onMounted, onBeforeUnmount } from 'vue';
+  import { useDisablePinchZoom } from '~/helpers/disablePinchZoomHelper';
+  import { initDomEvents } from '~/helpers/DomEvents';
+  import { useEventEmitter } from '~/helpers/EventEmitter';
+  import { IEventsName } from '~/types/IEventsName';
 
   const socketStore = useSocketStore();
+  initDomEvents();
+  useDisablePinchZoom();
+
+  onMounted(() => {
+    useEventEmitter.on(IEventsName.BeforeUnload, handleBeforeUnload);
+  });
 
   const handleBeforeUnload = () => {
     socketStore.clearSocket();
   };
 
-  onMounted(() => {
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    document.addEventListener('gesturestart', disableZoom);
-    document.addEventListener('gesturechange', disableZoom);
-    document.addEventListener('gestureend', restoreZoom);
-  });
-
   onBeforeUnmount(() => {
-    window.removeEventListener('beforeunload', handleBeforeUnload);
-    document.removeEventListener('gesturestart', disableZoom);
-    document.removeEventListener('gesturechange', disableZoom);
-    document.removeEventListener('gestureend', restoreZoom);
     socketStore.clearSocket();
   });
-
-  const disableZoom = (e: Event) => {
-    e.preventDefault();
-    document.body.style.zoom = '0.999999999';
-  };
-
-  const restoreZoom = (e: Event) => {
-    e.preventDefault();
-    document.body.style.zoom = '1';
-  };
 </script>
