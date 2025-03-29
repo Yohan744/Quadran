@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   rootDir: './',
   css: ['./assets/scss/main.scss'],
   devtools: { enabled: true },
+  watch: ['**/*.vue', '**/*.ts', '**/*.js'],
 
   modules: ['@pinia/nuxt', 'pinia-plugin-persistedstate/nuxt', '@nuxt/fonts'],
 
@@ -23,34 +24,92 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    server: {
+      hmr: {
+        overlay: true
+      },
+      fs: {
+        strict: false
+      },
+      watch: {
+        usePolling: false,
+        ignored: ['**/node_modules/**', '**/.*/**', '**/dist/**', '**/.nuxt/**']
+      }
+    },
+    optimizeDeps: {
+      exclude: ['vue-demi']
+    },
+
     plugins: [
       checker({
-        typescript: true,
-        vueTsc: true,
+        vueTsc: {
+          tsconfigPath: 'tsconfig.json',
+          root: '.'
+        },
         enableBuild: true,
+        overlay: {
+          position: 'bl',
+          badgeStyle: 'z-index: 9999; background-color: #e74c3c; color: white; font-weight: bold;',
+          panelStyle: 'z-index: 9999; max-height: 50vh; overflow-y: auto; border: 2px solid #e74c3c;'
+        },
+        terminal: true,
         stylelint: {
           lintCommand: 'stylelint **/*.{css,scss,vue}'
-        },
-        overlay: true,
-        terminal: true
+        }
       })
     ],
 
     json: {
       stringify: true
     },
+
     build: {
       cssMinify: true,
       ssrManifest: true,
-      minify: 'terser'
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vue-vendor': ['vue', 'vue-router'],
+            'pinia-vendor': ['pinia']
+          }
+        }
+      }
     },
+
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `@use "@/assets/scss/variables" as *; @use "@/assets/scss/colors" as *; @use "@/assets/scss/breakpoints" as *;`
         }
       }
+    },
+
+    vue: {
+      template: {
+        compilerOptions: {
+          hoistStatic: true,
+          whitespace: 'condense',
+          cacheHandlers: true
+        }
+      },
+      script: {
+        defineModel: true,
+        propsDestructure: true
+      }
     }
+  },
+
+  typescript: {
+    strict: true,
+    typeCheck: true,
+    shim: false
   },
 
   fonts: {

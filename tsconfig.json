@@ -16,6 +16,6 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["node"]
   },
-  "include": ["**/*.ts", "../../types/**/*.ts"],
-  "exclude": ["node_modules", "dist", "./apps/front/.output"]
+  "include": ["**/*.ts", "../../types/**/*.ts", "./**/*.vue"],
+  "exclude": ["node_modules", "apps/front/node_modules", ".nuxt", "dist", "./apps/front/.output"]
 }

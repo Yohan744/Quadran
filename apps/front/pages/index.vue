@@ -22,6 +22,20 @@
       position: relative;
       margin-bottom: 30px;
     }
+
+    .error-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #c0392b;
+      }
+    }
   }
 </style>
-<script setup lang="ts"></script>

@@ -27,12 +27,12 @@
     socketStore.clearSocket();
   });
 
-  const disableZoom = e => {
+  const disableZoom = (e: Event) => {
     e.preventDefault();
     document.body.style.zoom = '0.999999999';
   };
 
-  const restoreZoom = e => {
+  const restoreZoom = (e: Event) => {
     e.preventDefault();
     document.body.style.zoom = '1';
   };
